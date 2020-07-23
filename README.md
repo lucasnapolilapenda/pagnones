@@ -110,7 +110,8 @@ In addition, this tool will have a Dashboard to summarize the most relevant info
 - Database Creation (In our case we tested all the scripts in a pre-created Azure Database )
 - Schema Creation based on the scripts presented in class
 - Tables creation
-- Foreign Key creation: i) Additional columns creation, ii) Constraints generation. We separated this phase to create the tables before implementing all the FK and columns/fields related to the FK 
+- Foreign Key creation: i) Additional columns creation, ii) Constraints generation. We separated this phase to create the tables before implementing all the FK and columns/fields related to the FK
+- 3) 
 
 
 License and Rights
