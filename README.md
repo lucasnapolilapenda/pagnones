@@ -20,7 +20,7 @@ Development: Pagnones System
 Attached .zip / or you can download the project in: https://github.com/lucasnapolilapenda/pagnones
    
 # Abstract:
-Day-trading business is a competitive sector where only less than 10% of the traders who perform day-trading transactions earn money. Emotions, "feeling" to wait for the "perfect moment", lack of a strategy and not to accomplish with the basic rules and boundary are part of the reasons why traders lose money.    
+Day-trading business is a competitive sector where only less than 10% of the traders who perform day-trading transactions earn money. Emotions, "feeling" to wait for the "perfect moment", Lack of a strategy and not complying with the basic rules and limits are part of the reasons why traders lose money.
 
  A solution to follow a methodology, based on the stock drivers, seems to be necessary to improve the performance of future transactions. Additionally, a process to evaluate every trade and record all the historic transaction are a solution to develop better strategies and approaches before performing a day-trading transaction. 
 
