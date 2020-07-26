@@ -313,3 +313,66 @@ SELECT * FROM dd.StockTransactions;
 
 --DELETE FROM dd.StockTransactions;
 
+
+/***** EVALUATION INSERTION *****/ 
+
+/* 20. Loading ev.Criteria*/
+
+INSERT INTO ev.Criteria
+(ID, Criterion, MaxPoint, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('9a198897-52d9-47e9-95d8-b2e1793d4b7e', 'Set up', 15, 0, '2020/07/22 00:00', 'lnapoli'),
+('8134393a-b629-425d-ad9d-f127d72b3cdc', 'Risk Management', 15, 0, '2020/07/22 00:00', 'lnapoli'),
+('b6b81b43-f24d-45a0-bb24-ce2d7814efdb', 'Risk Reward', 15, 0, '2020/07/22 00:00', 'lnapoli'),
+('636056f6-d022-4d8c-9ef5-961957f19e6f', 'Preparation', 15, 0, '2020/07/22 00:00', 'lnapoli'),
+('8edb3c3a-adde-4248-ba68-8721fe08e4ba', 'Entry', 15, 0, '2020/07/22 00:00', 'lnapoli'),
+('e8502a4c-8ea5-419a-bc4f-67ac61e4e128', 'Exit', 15, 0, '2020/07/22 00:00', 'lnapoli'),
+('50d9acb5-0451-4d43-90ec-1dfde33be34c', 'Attitud', 15, 0, '2020/07/22 00:00', 'lnapoli');
+
+SELECT * FROM ev.Criteria;
+
+--DELETE FROM ev.Criteria;
+
+/* 21. Loading ev.Performance*/
+INSERT INTO ev.Performance
+(ID, PriceBuy, PriceSell, ShortLong, EvaluationAt, Conclusion, ToStockTransactionID, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('97807a73-78e5-47c9-80ae-f92bb1a443d9', 3, 5, 0, '2020/07/22 00:00', 'Check Levels', 'fb770ed5-e6a8-435f-8503-a228312d651f',  0, '2020/07/22 00:00', 'lnapoli'),
+('faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 4, 3, 0, '2020/07/22 00:00', 'Better Preparation', '9eb94e9d-1a54-457a-9757-cd8055dc9ea8',  0, '2020/07/22 00:00', 'lnapoli'),
+('07e72e8d-7f99-4de6-b083-9168b0fecf94', 3, 8, 1, '2020/07/22 00:00', 'Historic is gold', '5ea53b6a-bf81-463f-a39b-913270ee0054',  0, '2020/07/22 00:00', 'lnapoli');
+
+SELECT * FROM ev.Performance;
+
+--DELETE FROM ev.Performance;
+
+
+/* 22. Loading ev.Evaluations*/
+INSERT INTO ev.Evaluations
+(ID, Points, ToCriteriaID, ToPerformaceID, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('5ea611a4-bebf-4222-af3e-c4d7938822b2', 10, '9a198897-52d9-47e9-95d8-b2e1793d4b7e', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('c65974bb-1eab-4baa-97d9-7d5fd5cfeff1', 11, '8134393a-b629-425d-ad9d-f127d72b3cdc', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('f697b548-2cee-4907-9bc1-253ce9016940', 12, 'b6b81b43-f24d-45a0-bb24-ce2d7814efdb', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('16a5e4a0-2216-44b4-b4c0-18ee78d740b2', 11, '636056f6-d022-4d8c-9ef5-961957f19e6f', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('c06bce7f-598a-4f79-ac7a-33946f8020fc', 9, '8edb3c3a-adde-4248-ba68-8721fe08e4ba', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('411d402e-68b0-448d-b87e-c6ff74314c32', 7, 'e8502a4c-8ea5-419a-bc4f-67ac61e4e128', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('966303e2-270b-44b3-a6cd-9dae0cfc510a', 7, '50d9acb5-0451-4d43-90ec-1dfde33be34c', '97807a73-78e5-47c9-80ae-f92bb1a443d9', 0, '2020/07/22 00:00', 'lnapoli'),
+('ad3408f2-0eb8-4e79-ad26-f948417d8d06', 6, '9a198897-52d9-47e9-95d8-b2e1793d4b7e', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('e51b2303-febb-4e36-97cf-c9e3a9bd6faf', 7, '8134393a-b629-425d-ad9d-f127d72b3cdc', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('ce9861ec-50a2-470d-b80f-e9dbeed332c5', 9, 'b6b81b43-f24d-45a0-bb24-ce2d7814efdb', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('4b0d80d5-2129-4e20-85f4-806b70d19018', 3, '636056f6-d022-4d8c-9ef5-961957f19e6f', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('1ba6d42e-0493-4b09-8ad5-44c1bc7a529d', 9, '8edb3c3a-adde-4248-ba68-8721fe08e4ba', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('164747eb-e318-448a-b7bd-2ccd7f43d423', 10, 'e8502a4c-8ea5-419a-bc4f-67ac61e4e128', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('9eff9fcf-b021-40fe-a472-b27c9c407622', 11, '50d9acb5-0451-4d43-90ec-1dfde33be34c', 'faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 0, '2020/07/22 00:00', 'lnapoli'),
+('d414984c-ca43-4ecb-b537-cd0d62a65969', 13, '9a198897-52d9-47e9-95d8-b2e1793d4b7e', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
+('afa47b76-e32d-4fca-84e8-48847be3bfda', 15, '8134393a-b629-425d-ad9d-f127d72b3cdc', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
+('784ae7c9-da3d-49f5-86ab-34a7d029a10b', 12, 'b6b81b43-f24d-45a0-bb24-ce2d7814efdb', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
+('c9bc1096-26b7-453b-97c5-b8e6c02ac51c', 13, '636056f6-d022-4d8c-9ef5-961957f19e6f', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
+('efb4e5c4-8faa-4a69-9438-72c4a8dcb84c', 15, '8edb3c3a-adde-4248-ba68-8721fe08e4ba', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
+('72d80a8e-efc5-46a1-a629-12c75553be0f', 15, 'e8502a4c-8ea5-419a-bc4f-67ac61e4e128', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
+('ed2543b3-2985-44c5-8031-98a470d514d0', 14, '50d9acb5-0451-4d43-90ec-1dfde33be34c', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli');
+
+SELECT * FROM ev.Evaluations;
+
+--DELETE FROM ev.Evaluations;
+

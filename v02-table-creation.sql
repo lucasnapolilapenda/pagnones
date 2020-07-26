@@ -410,6 +410,7 @@ CREATE TABLE ev.Evaluations
     ID uniqueidentifier NOT NULL,
     Points integer NOT NULL,
     ToCriteriaID uniqueidentifier NULL,
+    ToPerformaceID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -434,7 +435,6 @@ CREATE TABLE ev.Performance
     EvaluationAt datetime NOT NULL,
     Conclusion varchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
     ToStockTransactionID uniqueidentifier NULL,
-    ToEvaluationID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -442,6 +442,8 @@ CREATE TABLE ev.Performance
 )
 ;
 GO
+
+ALTER TABLE ev.Performance DROP COLUMN ToEvaluationID;
 
 /********************* ROLES TABLES *****/ 
 

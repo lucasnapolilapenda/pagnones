@@ -198,7 +198,7 @@ GO
 /* 14. Between ev.Evaluation and ev.Criteria*/
 
 ALTER TABLE ev.Evaluations
-DROP CONSTRAINT fk_Eval_Criteria;
+DROP CONSTRAINT fk_Eval_Criteria, fk_Eval_Performance;
 GO 
 
 ALTER TABLE ev.Evaluations
@@ -207,17 +207,17 @@ ALTER TABLE ev.Evaluations
 ;
 GO
 
+ALTER TABLE ev.Evaluations
+	add constraint fk_Eval_Performance foreign key (ToPerformaceID)
+	references ev.Performance (ID)
+;
+GO
+
 /* 15. Between ev.Evaluation and ev.Criteria*/
 
 ALTER TABLE ev.Performance
-DROP CONSTRAINT fk_Evaluation, fk_Stock;
+DROP CONSTRAINT  fk_Stock;
 GO 
-
-ALTER TABLE ev.Performance
-	add constraint fk_Evaluation foreign key (ToEvaluationID)
-	references ev.Evaluations (ID)
-;
-GO
 
 ALTER TABLE ev.Performance
 	add constraint fk_Stock foreign key (ToStockTransactionID)
@@ -225,7 +225,7 @@ ALTER TABLE ev.Performance
 ;
 GO
 
-/* 16. Roles Relationships*/
+
 
 
 
