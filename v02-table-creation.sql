@@ -1,8 +1,11 @@
+
+/********************* DUE DILIGENCE TABLES *****/ 
 /***** Table Sector *****/ 
 
 IF OBJECT_ID ('dd.Sector') IS NOT NULL  
     DROP TABLE dd.Sector;  
 GO
+
 
 CREATE TABLE dd.Sector
 (
@@ -351,6 +354,7 @@ CREATE TABLE dd.StockTransacions
 (
     ID uniqueidentifier NOT NULL,
     FloatValue DECIMAL (10,2) NOT NULL,
+    DueDiligenceAt datetime NOT NULL,
     ToCatalizerID uniqueidentifier NULL,
     ToCashID uniqueidentifier NULL,
     ToHistoryChartID uniqueidentifier NULL,
@@ -365,6 +369,178 @@ CREATE TABLE dd.StockTransacions
 )
 ;
 GO
+
+
+/********************* EVALUATION TABLES *****/ 
+
+/***** Table Criteria *****/ 
+
+IF OBJECT_ID ('dd.Criteria') IS NOT NULL  
+    DROP TABLE dd.Criteria;  
+GO
+
+
+CREATE TABLE dd.Criteria
+(
+    ID uniqueidentifier NOT NULL,
+    Criterion varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    MaxPoint integer NOT NULL,
+	IsDeleted bit NOT NULL DEFAULT 0,
+	CreatedAt datetime NOT NULL,
+	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    CONSTRAINT PK_Criteria PRIMARY KEY (ID)
+)
+;
+GO
+
+/***** Table Evaluations *****/ 
+
+IF OBJECT_ID ('dd.Evaluations') IS NOT NULL  
+    DROP TABLE dd.Evaluations;  
+GO
+
+
+CREATE TABLE dd.Evaluations
+(
+    ID uniqueidentifier NOT NULL,
+    Points integer NOT NULL,
+    ToCriteriaID uniqueidentifier NULL,
+	IsDeleted bit NOT NULL DEFAULT 0,
+	CreatedAt datetime NOT NULL,
+	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    CONSTRAINT PK_Evaluations PRIMARY KEY (ID)
+)
+;
+GO
+
+/***** Table Performance *****/ 
+
+IF OBJECT_ID ('dd.Performance') IS NOT NULL  
+    DROP TABLE dd.Performance;  
+GO
+
+
+CREATE TABLE dd.Performance
+(
+    ID uniqueidentifier NOT NULL,
+    PriceBuy DECIMAL (10,2) NOT NULL,
+    PriceSell DECIMAL (10,2) NOT NULL,
+    ShortLong bit NOT NULL DEFAULT 0,
+    EvaluationAt datetime NOT NULL,
+    Conclusion varchar(250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    ToStockTransactionID uniqueidentifier NULL,
+    ToEvaluationID uniqueidentifier NULL,
+	IsDeleted bit NOT NULL DEFAULT 0,
+	CreatedAt datetime NOT NULL,
+	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    CONSTRAINT PK_Performance PRIMARY KEY (ID)
+)
+;
+GO
+
+/********************* ROLES TABLES *****/ 
+
+/***** Table Users *****/
+
+IF OBJECT_ID ('ro.Users') IS NOT NULL  
+    DROP TABLE ro.Users;  
+GO
+
+CREATE TABLE ro.Users (
+	ID uniqueidentifier NOT NULL,
+	IsActive bit NOT NULL,
+	IsDeleted bit NOT NULL,
+	CreatedAt datetime NOT NULL,
+	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	UpdatedAt datetime NOT NULL,
+	UpdatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	UserPassword varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	Email varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	ToRoleID uniqueidentifier NOT NULL,
+	ExpiresIn bigint NOT NULL,
+	AccessLevel int NOT NULL,
+	Username varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	PicturePath varchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	--CONSTRAINT PK_User PRIMARY KEY (ID),
+	--CONSTRAINT FK_User_Role FOREIGN KEY (RoleID) REFERENCES ro.Roles(ID)
+)
+; 
+GO
+
+
+
+/***** Table RolePermissions *****/
+
+IF OBJECT_ID ('ro.RolePermissions') IS NOT NULL  
+    DROP TABLE ro.RolePermissions;  
+GO
+
+CREATE TABLE ro.RolePermissions (
+	ID uniqueidentifier NOT NULL,
+	IsActive bit NOT NULL,
+	IsDeleted bit NOT NULL,
+	CreatedAt datetime NOT NULL,
+	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	UpdatedAt datetime NOT NULL,
+	UpdatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	RoleID uniqueidentifier NOT NULL,
+	PermissionID uniqueidentifier NOT NULL,
+	CONSTRAINT PK_RolePermission PRIMARY KEY (ID),
+	--CONSTRAINT FK_RolePermission_Permission FOREIGN KEY (PermissionID) REFERENCES ddmgeo.ddm.Permission(ID),
+	--CONSTRAINT FK_RolePermission_Role FOREIGN KEY (RoleID) REFERENCES ddmgeo.ddm.[Role](ID)
+) 
+;
+GO
+
+/***** Table Permissions *****/
+
+IF OBJECT_ID ('ro.Permission') IS NOT NULL  
+    DROP TABLE ro.Permission;  
+GO
+
+
+CREATE TABLE ro.Permission (
+	ID uniqueidentifier NOT NULL,
+	SysActionID uniqueidentifier NOT NULL,
+	SysEntityID uniqueidentifier NOT NULL,
+	CONSTRAINT PK_Permission PRIMARY KEY (ID),
+	--CONSTRAINT FK_Permission_SysAction FOREIGN KEY (SysActionID) REFERENCES ddmgeo.ddm.SysAction(ID),
+	--CONSTRAINT FK_Permission_SysEntity FOREIGN KEY (SysEntityID) REFERENCES ddmgeo.ddm.SysEntity(ID)
+) 
+;
+GO
+
+/***** Table SysAction *****/
+
+IF OBJECT_ID ('ro.SysAction') IS NOT NULL  
+    DROP TABLE ro.SysAction;  
+GO
+
+CREATE TABLE ro.SysAction (
+	ID uniqueidentifier NOT NULL,
+	ActionName varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	CONSTRAINT PK_SysAction PRIMARY KEY (ID)
+) 
+;
+GO
+
+
+/***** Table SysEntity *****/
+
+IF OBJECT_ID ('ro.SysEntity') IS NOT NULL  
+    DROP TABLE ro.SysEntity;  
+GO
+
+CREATE TABLE ro.SysEntity (
+	ID uniqueidentifier NOT NULL,
+	EntityName varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	Name varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	Description varchar(200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT PK_SysEntity PRIMARY KEY (ID)
+) 
+;
+GO
+
 
 
 
