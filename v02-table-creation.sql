@@ -27,7 +27,7 @@ GO
 CREATE TABLE dd.Stocks
 (
     ID uniqueidentifier NOT NULL,
-    Ticker varchar(5) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    Ticker varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
     CompanyName varchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
     Market varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
     ToSectorID uniqueidentifier NULL,
@@ -38,6 +38,11 @@ CREATE TABLE dd.Stocks
 )
 ;
 GO
+
+--ALTER TABLE dd.Stocks ALTER COLUMN Ticker VARCHAR (50);
+
+
+
 
 /***** Catalizer Tables *****/ 
 
@@ -103,9 +108,10 @@ GO
 
 CREATE TABLE dd.CashTransactions
 (
-    ID uniqueidentifier NOT NULL,
+    ID UNIQUEIDENTIFIER  NOT NULL,
     CashValue DECIMAL (10,2) NOT NULL,
     ToCashTypeID uniqueidentifier NULL,
+    ToCashID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -115,7 +121,7 @@ CREATE TABLE dd.CashTransactions
 GO
 
 
--- Cash Transactions
+-- Cash 
 IF OBJECT_ID ('dd.Cash') IS NOT NULL  
     DROP TABLE dd.Cash;  
 GO
@@ -123,7 +129,6 @@ GO
 CREATE TABLE dd.Cash
 (
     ID uniqueidentifier NOT NULL,
-    ToCashTransactionsID uniqueidentifier NULL,
     CONSTRAINT PK_Cash PRIMARY KEY (ID)
 )
 ;
@@ -159,6 +164,7 @@ CREATE TABLE dd.HistoryChartTransactions
     ID uniqueidentifier NOT NULL,
     HistoryChartTransactionsValue DECIMAL (10,2) NOT NULL,
     ToHistoryChartTypeID uniqueidentifier NULL,
+    ToHistoryChartID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -176,7 +182,6 @@ GO
 CREATE TABLE dd.HistoryChart
 (
     ID uniqueidentifier NOT NULL,
-    ToHistoryChartTransactionsID uniqueidentifier NULL,
     CONSTRAINT PK_HistoryChart PRIMARY KEY (ID)
 )
 ;
@@ -263,7 +268,8 @@ CREATE TABLE dd.VolumeTransactions
 (
     ID uniqueidentifier NOT NULL,
     VolumeValue DECIMAL (10,2) NOT NULL,
-    ToVolumeTypesID uniqueidentifier NULL,
+    ToVolumeTypesID uniqueidentifier NOT NULL,
+    ToVolumeID uniqueidentifier NOT NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -281,7 +287,6 @@ GO
 CREATE TABLE dd.Volume
 (
     ID uniqueidentifier NOT NULL,
-    ToVolumeTransactionsID uniqueidentifier NULL,
     CONSTRAINT PK_Volume PRIMARY KEY (ID)
 )
 ;

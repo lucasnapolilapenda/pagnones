@@ -25,7 +25,7 @@ GO
 /* 3. Between dd.CashTypes and dd.CashTransactions*/
 
 ALTER TABLE dd.CashTransactions
-DROP CONSTRAINT fk_CashTras_CashTypes;  
+DROP CONSTRAINT fk_CashTras_CashType;  
 GO 
 
 ALTER TABLE dd.CashTransactions
@@ -34,15 +34,15 @@ ALTER TABLE dd.CashTransactions
 ;
 GO
 
-/* 4. Between dd.CashTypes and dd.CashTransactions*/
+/* 4. Between dd.Cash and dd.CashTransactions*/
 
-ALTER TABLE dd.Cash
+ALTER TABLE dd.CashTransactions
 DROP CONSTRAINT fk_Cash_CashTran;  
 GO 
 
-ALTER TABLE dd.Cash
-	add constraint fk_Cash_CashTran foreign key (ToCashTransactionsID)
-	references dd.CashTransactions (ID)
+ALTER TABLE dd.CashTransactions
+	add constraint fk_Cash_CashTran foreign key (ToCashID)
+	references dd.Cash (ID)
 ;
 GO
 
@@ -58,15 +58,15 @@ ALTER TABLE dd.HistoryChartTransactions
 ;
 GO
 
-/* 6. Between dd.HistoryChartTypes and dd.HistoryChartTransactions*/
+/* 6. Between dd.HistoryChart and dd.HistoryChartTransactions*/
 
-ALTER TABLE dd.HistoryChart
+ALTER TABLE dd.HistoryChartTransactions
 DROP CONSTRAINT fk_HistoryChart_HistoryChartTran;  
 GO 
 
-ALTER TABLE dd.HistoryChart
-	add constraint fk_HistoryChart_HistoryChartTran foreign key (ToHistoryChartTransactionsID)
-	references dd.HistoryChartTransactions (ID)
+ALTER TABLE dd.HistoryChartTransactions
+	add constraint fk_HistoryChart_HistoryChartTran foreign key (ToHistoryChartID)
+	references dd.HistoryChart (ID)
 ;
 GO
 
@@ -130,15 +130,15 @@ ALTER TABLE dd.VolumeTransactions
 ;
 GO
 
-/* 12. Between dd.VolumeTypes and dd.VolumeTransactions*/
+/* 12. Between dd.Volume and dd.VolumeTransactions*/
 
-ALTER TABLE dd.Volume
+ALTER TABLE dd.VolumeTransactions
 DROP CONSTRAINT fk_Volume_VolumeTran;  
 GO 
 
-ALTER TABLE dd.Volume
-	add constraint fk_Volume_VolumeTran foreign key (ToVolumeTransactionsID)
-	references dd.VolumeTransactions (ID)
+ALTER TABLE dd.VolumeTransactions
+	add constraint fk_Volume_VolumeTran foreign key (ToVolumeID)
+	references dd.Volume (ID)
 ;
 GO
 
