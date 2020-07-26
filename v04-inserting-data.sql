@@ -11,8 +11,11 @@ VALUES
 ('afa3652f-85a4-454e-b7a8-487e19d8d84c', 'Profit: Operating', 0, '2020/07/22 00:00', 'lnapoli'),
 ('bf793903-b846-4cda-beba-1d5abd730515', 'Lost: Net', 0, '2020/07/22 00:00', 'lnapoli'),
 ('09805c67-e280-4dc8-b0ca-a5a58ca3b762', 'Profit: Net', 0, '2020/07/22 00:00', 'lnapoli');
-
+GO
 SELECT * FROM dd.CashTypes;
+GO
+
+
 
 --DELETE FROM dd.CashTypes;
 
@@ -24,9 +27,10 @@ VALUES
 ('4567ff83-1b1f-4148-8ee9-3badd569a15c'),
 ('35ec2866-4cdc-4c23-899f-6adb531db8b2'),
 ('212b93e6-935d-414a-bd9e-b9f642b01ec1');
+GO
 
 SELECT * FROM dd.Cash;
-
+GO
 --DELETE FROM dd.Cash;
 
 
@@ -41,8 +45,10 @@ VALUES
 ('357b5dcb-931c-418e-af2b-cf523daa0d9a', 10, '09805c67-e280-4dc8-b0ca-a5a58ca3b762', '35ec2866-4cdc-4c23-899f-6adb531db8b2',0, '2020/07/22 00:00', 'lnapoli'),
 ('76f01213-c4aa-45e1-a0b3-ffc56b2b7fab', 80, 'afa3652f-85a4-454e-b7a8-487e19d8d84c', '212b93e6-935d-414a-bd9e-b9f642b01ec1',0, '2020/07/22 00:00', 'lnapoli'),
 ('ef2a2d05-081d-4753-a2eb-89f25846b99e', 5, 'bf793903-b846-4cda-beba-1d5abd730515', '212b93e6-935d-414a-bd9e-b9f642b01ec1',0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.CashTransactions;
+GO
 
 --DELETE FROM dd.CashTransactions;
 
@@ -56,10 +62,10 @@ VALUES
 ('ffc9b931-089c-4d0f-bde0-745b37950299', 'BIOTECH', 0, '2020/07/22 00:00', 'lnapoli'),
 ('f8b44438-88a9-4f21-bc41-bb3c5d486672', 'ENERGY', 0, '2020/07/22 00:00', 'lnapoli'),
 ('9d10b660-ac21-4ef9-99ec-999f1e607e52', 'OIL', 0, '2020/07/22 00:00', 'lnapoli');
-
+GO
 
 SELECT * FROM dd.Sector;
-
+GO
 --DELETE FROM dd.Sector;
 
 
@@ -70,9 +76,10 @@ VALUES
 ('273e752d-f9b1-44b4-8228-4babad54ba78', 'PECK', 'Peck Company', 'NASDAQ', 'f8b44438-88a9-4f21-bc41-bb3c5d486672', 0, '2020/07/22 00:00', 'lnapoli'),
 ('3e82575f-edf0-48c3-a59d-83f08bc5a338', 'TROV', 'Cardiff Oncology', 'NASDAQ', 'ffc9b931-089c-4d0f-bde0-745b37950299', 0, '2020/07/22 00:00', 'lnapoli'),
 ('926d3d7e-215f-4474-9022-5f6bca3a4841', 'SAEX', 'SA Exploration', 'OTCMKTS', '9d10b660-ac21-4ef9-99ec-999f1e607e52', 0, '2020/07/22 00:00', 'lnapoli');
-
+GO
 
 SELECT * FROM dd.Stocks;
+GO
 
 --DELETE FROM dd.Stocks;
 
@@ -88,8 +95,10 @@ VALUES
 ('6889435c-de45-4553-8d3f-868dff4795fc', 'Positive Results', 0, '2020/07/22 00:00', 'lnapoli'),
 ('514c9e98-62c9-4024-8647-47e141c9b870', 'New Contract', 0, '2020/07/22 00:00', 'lnapoli'),
 ('17a178b2-7265-4011-8c98-c2c9f794bc5e', 'Partnership', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.CatalizerType;
+GO
 
 --DELETE FROM dd.CatalizerType;
 
@@ -100,8 +109,10 @@ VALUES
 ('86933c9d-8d2d-45a9-8345-e060236874b6', 100, '6889435c-de45-4553-8d3f-868dff4795fc', 0, '2020/07/22 00:00', 'lnapoli'),
 ('c3a752e6-3c1c-4f7e-80cc-d54ca60e67f1', 20, '514c9e98-62c9-4024-8647-47e141c9b870', 0, '2020/07/22 00:00', 'lnapoli'),
 ('bbce7773-2223-457b-a5e8-777717f95422', 30, '17a178b2-7265-4011-8c98-c2c9f794bc5e', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.CatalizerTransactions;
+GO
 
 --DELETE FROM dd.CatalizerTransactions;
 
@@ -117,9 +128,10 @@ VALUES
 ('755afd28-8370-492a-8034-49fe6f553ac1', 'Support no-runs', 0, '2020/07/22 00:00', 'lnapoli'),
 ('9bdde4ef-71f1-42ce-a070-4064128f1289', 'Former Runner', 0, '2020/07/22 00:00', 'lnapoli'),
 ('69ebb752-c281-4314-8f83-99988483ff64', 'No Volatility', 0, '2020/07/22 00:00', 'lnapoli');
-
+GO
 
 SELECT * FROM dd.HistoryChartTypes;
+GO
 
 --DELETE FROM dd.HistoryChartTypes;
 
@@ -131,8 +143,10 @@ VALUES
 ('e15de8ff-7e0c-470e-98b5-ae4007e41188'),
 ('cec72808-e7aa-48c1-9d58-e45e657aaa5a'),
 ('e71b9abd-cb65-46a0-91a0-ba583b7c5ad4');
+GO
 
 SELECT * FROM dd.HistoryChart;
+GO
 
 --DELETE FROM dd.HistoryChart;
 
@@ -148,8 +162,10 @@ VALUES
 ('ed8d7e3f-c509-42cc-a765-89ec3b06f8c6', 5, '845db9ff-85ed-46d7-a27a-728a6a537d24', 'cec72808-e7aa-48c1-9d58-e45e657aaa5a', 0, '2020/07/22 00:00', 'lnapoli'),
 ('8622b49a-046a-4c01-ba7c-f304dbbb5d58', 2, '9bdde4ef-71f1-42ce-a070-4064128f1289', 'e71b9abd-cb65-46a0-91a0-ba583b7c5ad4', 0, '2020/07/22 00:00', 'lnapoli'),
 ('fba4d1cc-bad9-4681-834b-71ff39aa826d', 1, '69ebb752-c281-4314-8f83-99988483ff64', 'e71b9abd-cb65-46a0-91a0-ba583b7c5ad4', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.HistoryChartTransactions;
+GO
 
 --DELETE FROM dd.HistoryChartTransactions;
 
@@ -166,8 +182,10 @@ VALUES
 ('40457d2c-f5e2-4142-b48b-e3017974032a', 'NewLevel', 0, '2020/07/22 00:00', 'lnapoli'),
 ('e1ad17a8-e60b-4a4e-a4fa-15f291b11ca3', 'Step Growth', 0, '2020/07/22 00:00', 'lnapoli'),
 ('b5dd16b2-7eea-40bd-9138-49118f1ce338', 'Step Down', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.VolumeTypes;
+GO
 
 --DELETE FROM dd.VolumeTypes;
 
@@ -179,9 +197,10 @@ VALUES
 ('8f371c82-0a9a-40c7-ad72-92bee33ef86e'),
 ('0f1be280-054a-4336-929d-d915e2b2259b'),
 ('aebb3a67-4c47-4508-9aab-f8da0994a22f');
+GO
 
 SELECT * FROM dd.Volume;
-
+GO
 --DELETE FROM dd.Volume;
 
 
@@ -196,10 +215,10 @@ VALUES
 ('d2b5185d-d3b4-46f1-a5c6-3e9569957afb', 0, '84ae8203-de56-43a5-9290-c351e1bae091', '0f1be280-054a-4336-929d-d915e2b2259b', 0, '2020/07/22 00:00', 'lnapoli'),
 ('5cba048d-a6d7-4343-8814-dab81a460b11', 5, 'e1ad17a8-e60b-4a4e-a4fa-15f291b11ca3', 'aebb3a67-4c47-4508-9aab-f8da0994a22f', 0, '2020/07/22 00:00', 'lnapoli'),
 ('38d3ecf0-b317-445a-b589-3e39c1948bc2', 2, '40457d2c-f5e2-4142-b48b-e3017974032a', 'aebb3a67-4c47-4508-9aab-f8da0994a22f', 0, '2020/07/22 00:00', 'lnapoli');
-
+GO
 
 SELECT * FROM dd.VolumeTransactions;
-
+GO
 --DELETE FROM dd.VolumeTransactions;
 
 
@@ -211,10 +230,10 @@ INSERT INTO pagnone.dd.KeyLevelsTypes
 VALUES
 ('2c731368-2e19-43a9-a63c-adc4516a3a41', 'Warrants', 0, '2020/07/22 00:00', 'lnapoli'),
 ('5edd43e0-74fe-49ec-814c-5812ab6a9ea4', 'Historic', 0, '2020/07/22 00:00', 'lnapoli');
-
+GO
 
 SELECT * FROM dd.KeyLevelsTypes;
-
+GO
 --DELETE FROM dd.KeyLevelsTypes;
 
 
@@ -224,9 +243,10 @@ VALUES
 ('f1606988-5a77-4668-89d1-28a2e7840bda'),
 ('82ab8e35-f614-46dc-89dc-e0d14c6af663'),
 ('cd014ca6-064e-4620-a7df-1b25fce8244b');
+GO
 
 SELECT * FROM dd.KeyLevels;
-
+GO
 --DELETE FROM dd.KeyLevels;
 
 
@@ -240,9 +260,10 @@ VALUES
 ('a6015335-df52-4f39-97c1-c232e2335954', 3.5, '5edd43e0-74fe-49ec-814c-5812ab6a9ea4', '82ab8e35-f614-46dc-89dc-e0d14c6af663', 0, '2020/07/22 00:00', 'lnapoli'),
 ('93cfec81-acbc-4f6f-b426-24f3fb8d6042', 2, '2c731368-2e19-43a9-a63c-adc4516a3a41', 'cd014ca6-064e-4620-a7df-1b25fce8244b', 0, '2020/07/22 00:00', 'lnapoli'),
 ('8d9c3bfd-17d9-4e5a-9f2b-3a4fefc69178', 7.2, '5edd43e0-74fe-49ec-814c-5812ab6a9ea4', 'cd014ca6-064e-4620-a7df-1b25fce8244b', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.KeyLevelsTransactions;
-
+GO
 --DELETE FROM dd.KeyLevelsTransactions;
 
 
@@ -257,10 +278,10 @@ VALUES
 ('62f9d646-045b-4ff4-8d49-f2ec2e60a4df', 'Run Down', 0, '2020/07/22 00:00', 'lnapoli'),
 ('01daa204-64c6-4214-bf63-e16b4383307a', 'Historic', 0, '2020/07/22 00:00', 'lnapoli'),
 ('db4d0455-59e6-4813-8d95-0e8bb90672cd', 'Gap Down', 0, '2020/07/22 00:00', 'lnapoli');
-
-
+GO
 
 SELECT * FROM dd.PriceTypes;
+GO
 
 --DELETE FROM dd.PriceTypes;
 
@@ -271,9 +292,10 @@ VALUES
 ('487e052f-2563-4b0c-942f-8ca4ec5e3c5a'),
 ('ec556e3d-c7d6-42e9-aa77-61d99ae26ebd'),
 ('6964fd81-4613-410b-81be-a44f188b6758');
+GO
 
 SELECT * FROM dd.Price;
-
+GO
 --DELETE FROM dd.Price;
 
 
@@ -289,11 +311,10 @@ VALUES
 ('8c17b183-deb1-40d0-978d-f20dd76d4bc5', 200, 'affc96c3-d926-41f4-b427-9126bf0e5ac1', '6964fd81-4613-410b-81be-a44f188b6758', 0, '2020/07/22 00:00', 'lnapoli'),
 ('d44c3606-7c73-4ed8-aae2-efc5f72fec09', 50, '5eb55af9-1d45-48f3-8499-83c75de3e479', '6964fd81-4613-410b-81be-a44f188b6758', 0, '2020/07/22 00:00', 'lnapoli'),
 ('c47481dc-148a-4f1e-b2e6-78b6d5bc6ec7', 200, '01daa204-64c6-4214-bf63-e16b4383307a', '6964fd81-4613-410b-81be-a44f188b6758', 0, '2020/07/22 00:00', 'lnapoli');
-
-
+GO
 
 SELECT * FROM dd.PriceTransactions;
-
+GO
 --DELETE FROM dd.PriceTransactions;
 
 
@@ -308,9 +329,10 @@ VALUES
 ('fb770ed5-e6a8-435f-8503-a228312d651f', 2.5, '2020/07/22 00:00', '86933c9d-8d2d-45a9-8345-e060236874b6', '4567ff83-1b1f-4148-8ee9-3badd569a15c', 'e15de8ff-7e0c-470e-98b5-ae4007e41188', '487e052f-2563-4b0c-942f-8ca4ec5e3c5a', '8f371c82-0a9a-40c7-ad72-92bee33ef86e', 'f1606988-5a77-4668-89d1-28a2e7840bda', '273e752d-f9b1-44b4-8228-4babad54ba78', 0, '2020/07/22 00:00', 'lnapoli'),
 ('9eb94e9d-1a54-457a-9757-cd8055dc9ea8', 8, '2020/07/22 00:00', 'c3a752e6-3c1c-4f7e-80cc-d54ca60e67f1', '35ec2866-4cdc-4c23-899f-6adb531db8b2', 'cec72808-e7aa-48c1-9d58-e45e657aaa5a', 'ec556e3d-c7d6-42e9-aa77-61d99ae26ebd', '0f1be280-054a-4336-929d-d915e2b2259b', '82ab8e35-f614-46dc-89dc-e0d14c6af663', '3e82575f-edf0-48c3-a59d-83f08bc5a338', 0, '2020/07/22 00:00', 'lnapoli'),
 ('5ea53b6a-bf81-463f-a39b-913270ee0054', 4, '2020/07/22 00:00', 'bbce7773-2223-457b-a5e8-777717f95422', '212b93e6-935d-414a-bd9e-b9f642b01ec1', 'e71b9abd-cb65-46a0-91a0-ba583b7c5ad4', '6964fd81-4613-410b-81be-a44f188b6758', 'aebb3a67-4c47-4508-9aab-f8da0994a22f', 'cd014ca6-064e-4620-a7df-1b25fce8244b', '926d3d7e-215f-4474-9022-5f6bca3a4841', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM dd.StockTransactions;
-
+GO
 --DELETE FROM dd.StockTransactions;
 
 
@@ -328,9 +350,10 @@ VALUES
 ('8edb3c3a-adde-4248-ba68-8721fe08e4ba', 'Entry', 15, 0, '2020/07/22 00:00', 'lnapoli'),
 ('e8502a4c-8ea5-419a-bc4f-67ac61e4e128', 'Exit', 15, 0, '2020/07/22 00:00', 'lnapoli'),
 ('50d9acb5-0451-4d43-90ec-1dfde33be34c', 'Attitud', 15, 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM ev.Criteria;
-
+GO
 --DELETE FROM ev.Criteria;
 
 /* 21. Loading ev.Performance*/
@@ -340,9 +363,10 @@ VALUES
 ('97807a73-78e5-47c9-80ae-f92bb1a443d9', 3, 5, 0, '2020/07/22 00:00', 'Check Levels', 'fb770ed5-e6a8-435f-8503-a228312d651f',  0, '2020/07/22 00:00', 'lnapoli'),
 ('faf73ba8-9bf9-4caa-b16a-5933ea98b14d', 4, 3, 0, '2020/07/22 00:00', 'Better Preparation', '9eb94e9d-1a54-457a-9757-cd8055dc9ea8',  0, '2020/07/22 00:00', 'lnapoli'),
 ('07e72e8d-7f99-4de6-b083-9168b0fecf94', 3, 8, 1, '2020/07/22 00:00', 'Historic is gold', '5ea53b6a-bf81-463f-a39b-913270ee0054',  0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM ev.Performance;
-
+GO
 --DELETE FROM ev.Performance;
 
 
@@ -371,8 +395,10 @@ VALUES
 ('efb4e5c4-8faa-4a69-9438-72c4a8dcb84c', 15, '8edb3c3a-adde-4248-ba68-8721fe08e4ba', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
 ('72d80a8e-efc5-46a1-a629-12c75553be0f', 15, 'e8502a4c-8ea5-419a-bc4f-67ac61e4e128', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli'),
 ('ed2543b3-2985-44c5-8031-98a470d514d0', 14, '50d9acb5-0451-4d43-90ec-1dfde33be34c', '07e72e8d-7f99-4de6-b083-9168b0fecf94', 0, '2020/07/22 00:00', 'lnapoli');
+GO
 
 SELECT * FROM ev.Evaluations;
+GO
 
 --DELETE FROM ev.Evaluations;
 
