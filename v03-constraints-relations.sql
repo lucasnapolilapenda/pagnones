@@ -82,15 +82,15 @@ ALTER TABLE dd.KeyLevelsTransactions
 ;
 GO
 
-/* 8. Between dd.KeyLevelsTypes and dd.KeyLevelsTransactions*/
+/* 8. Between dd.KeyLevels and dd.KeyLevelsTransactions*/
 
-ALTER TABLE dd.KeyLevels
+ALTER TABLE dd.KeyLevelsTransactions
 DROP CONSTRAINT fk_KeyLevels_KeyLevelsTran;  
 GO 
 
-ALTER TABLE dd.KeyLevels
-	add constraint fk_KeyLevels_KeyLevelsTran foreign key (ToKeyLevelsTransactionsID)
-	references dd.KeyLevelsTransactions (ID)
+ALTER TABLE dd.KeyLevelsTransactions
+	add constraint fk_KeyLevels_KeyLevelsTran foreign key (ToKeyLevelsID)
+	references dd.KeyLevels (ID)
 ;
 GO
 
@@ -106,15 +106,15 @@ ALTER TABLE dd.PriceTransactions
 ;
 GO
 
-/* 10. Between dd.PriceTypes and dd.PriceTransactions*/
+/* 10. Between dd.Price and dd.PriceTransactions*/
 
-ALTER TABLE dd.Price
+ALTER TABLE dd.PriceTransactions
 DROP CONSTRAINT fk_Price_PriceTran;  
 GO 
 
-ALTER TABLE dd.Price
-	add constraint fk_Price_PriceTran foreign key (ToPriceTransactionsID)
-	references dd.PriceTransactions (ID)
+ALTER TABLE dd.PriceTransactions
+	add constraint fk_Price_PriceTran foreign key (ToPriceID)
+	references dd.Price (ID)
 ;
 GO
 
@@ -150,7 +150,6 @@ ALTER TABLE dd.StockTransactions
 DROP CONSTRAINT fk_Stocks, fk_Volume, fk_Price, fk_HistoryChart, fk_Catalizer,
 fk_Cash, fk_KeyLevels;
 GO 
-
 
 ALTER TABLE dd.StockTransactions
 	add constraint fk_Stocks foreign key (ToStockID)
@@ -193,6 +192,7 @@ ALTER TABLE dd.StockTransactions
 	references dd.KeyLevels (ID)
 ;
 GO
+
 
 
 /* 14. Between ev.Evaluation and ev.Criteria*/

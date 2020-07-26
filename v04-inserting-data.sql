@@ -80,7 +80,7 @@ SELECT * FROM dd.Stocks;
 
 
 /***** CATALIZER INSERTION *****/ 
-/* 5. Loading Catalizer Types*/
+/* 6. Loading Catalizer Types*/
 
 INSERT INTO dd.CatalizerType
 (ID, CatalizerTypes, IsDeleted, CreatedAt, CreatedBy)
@@ -107,7 +107,7 @@ SELECT * FROM dd.CatalizerTransactions;
 
 
 /***** HISTORYCHART DATA INSERTION *****/ 
-/* 1. Loading HistoryChartTypes*/
+/* 7. Loading HistoryChartTypes*/
 
 INSERT INTO dd.HistoryChartTypes
 (ID, HistoryChartTypes, IsDeleted, CreatedAt, CreatedBy)
@@ -124,7 +124,7 @@ SELECT * FROM dd.HistoryChartTypes;
 --DELETE FROM dd.HistoryChartTypes;
 
 
-/* 2. Loading HistoryChart*/
+/* 8. Loading HistoryChart*/
 INSERT INTO dd.HistoryChart
 (ID)
 VALUES
@@ -137,7 +137,7 @@ SELECT * FROM dd.HistoryChart;
 --DELETE FROM dd.HistoryChart;
 
 
-/* 3. Loading dd.HistoryChartTransactions*/
+/* 9. Loading dd.HistoryChartTransactions*/
 
 INSERT INTO dd.HistoryChartTransactions
 (ID, HistoryChartTransactionsValue, ToHistoryChartTypeID, ToHistoryChartID, IsDeleted, CreatedAt, CreatedBy)
@@ -149,13 +149,13 @@ VALUES
 ('8622b49a-046a-4c01-ba7c-f304dbbb5d58', 2, '9bdde4ef-71f1-42ce-a070-4064128f1289', 'e71b9abd-cb65-46a0-91a0-ba583b7c5ad4', 0, '2020/07/22 00:00', 'lnapoli'),
 ('fba4d1cc-bad9-4681-834b-71ff39aa826d', 1, '69ebb752-c281-4314-8f83-99988483ff64', 'e71b9abd-cb65-46a0-91a0-ba583b7c5ad4', 0, '2020/07/22 00:00', 'lnapoli');
 
-SELECT * FROM dd.CashTransactions;
+SELECT * FROM dd.HistoryChartTransactions;
 
---DELETE FROM dd.CashTransactions;
+--DELETE FROM dd.HistoryChartTransactions;
 
 
 /***** VOLUME DATA INSERTION *****/ 
-/* 1. Loading VolumeTypes*/
+/* 10. Loading VolumeTypes*/
 
 INSERT INTO dd.VolumeTypes
 (ID, ToVolumeTypes, IsDeleted, CreatedAt, CreatedBy)
@@ -172,7 +172,7 @@ SELECT * FROM dd.VolumeTypes;
 --DELETE FROM dd.VolumeTypes;
 
 
-/* 2. Loading Volume*/
+/* 11. Loading Volume*/
 INSERT INTO dd.Volume
 (ID)
 VALUES
@@ -185,7 +185,7 @@ SELECT * FROM dd.Volume;
 --DELETE FROM dd.Volume;
 
 
-/* 3. Loading dd.VolumeTransactions*/
+/* 12. Loading dd.VolumeTransactions*/
 
 INSERT INTO pagnone.dd.VolumeTransactions
 (ID, VolumeValue, ToVolumeTypesID, ToVolumeID, IsDeleted, CreatedAt, CreatedBy)
@@ -203,4 +203,113 @@ SELECT * FROM dd.VolumeTransactions;
 --DELETE FROM dd.VolumeTransactions;
 
 
+/***** KEYLEVEL DATA INSERTION *****/ 
+/* 13. Loading KeyLevelsTypes*/
+
+INSERT INTO pagnone.dd.KeyLevelsTypes
+(ID, KeyLevelsTypes, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('2c731368-2e19-43a9-a63c-adc4516a3a41', 'Warrants', 0, '2020/07/22 00:00', 'lnapoli'),
+('5edd43e0-74fe-49ec-814c-5812ab6a9ea4', 'Historic', 0, '2020/07/22 00:00', 'lnapoli');
+
+
+SELECT * FROM dd.KeyLevelsTypes;
+
+--DELETE FROM dd.KeyLevelsTypes;
+
+
+/* 14. Loading KeyLevel*/
+INSERT INTO dd.KeyLevels
+VALUES
+('f1606988-5a77-4668-89d1-28a2e7840bda'),
+('82ab8e35-f614-46dc-89dc-e0d14c6af663'),
+('cd014ca6-064e-4620-a7df-1b25fce8244b');
+
+SELECT * FROM dd.KeyLevels;
+
+--DELETE FROM dd.KeyLevels;
+
+
+/* 15. Loading dd.KeyLevelsTransactions*/
+INSERT INTO dd.KeyLevelsTransactions
+(ID, KeyLevelsTransactionsValue, ToKeylevelsTypeID, ToKeylevelsID, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('9db36989-da21-4509-bd70-b8fc456c871f', 4, '2c731368-2e19-43a9-a63c-adc4516a3a41', 'f1606988-5a77-4668-89d1-28a2e7840bda', 0, '2020/07/22 00:00', 'lnapoli'),
+('f6b1fb1c-084c-4835-84f0-a840ec9c71e4', 2.5, '5edd43e0-74fe-49ec-814c-5812ab6a9ea4', 'f1606988-5a77-4668-89d1-28a2e7840bda', 0, '2020/07/22 00:00', 'lnapoli'),
+('a88a9580-c7e6-4522-b5df-449ecf3d96d2', 3.2, '2c731368-2e19-43a9-a63c-adc4516a3a41', '82ab8e35-f614-46dc-89dc-e0d14c6af663', 0, '2020/07/22 00:00', 'lnapoli'),
+('a6015335-df52-4f39-97c1-c232e2335954', 3.5, '5edd43e0-74fe-49ec-814c-5812ab6a9ea4', '82ab8e35-f614-46dc-89dc-e0d14c6af663', 0, '2020/07/22 00:00', 'lnapoli'),
+('93cfec81-acbc-4f6f-b426-24f3fb8d6042', 2, '2c731368-2e19-43a9-a63c-adc4516a3a41', 'cd014ca6-064e-4620-a7df-1b25fce8244b', 0, '2020/07/22 00:00', 'lnapoli'),
+('8d9c3bfd-17d9-4e5a-9f2b-3a4fefc69178', 7.2, '5edd43e0-74fe-49ec-814c-5812ab6a9ea4', 'cd014ca6-064e-4620-a7df-1b25fce8244b', 0, '2020/07/22 00:00', 'lnapoli');
+
+SELECT * FROM dd.KeyLevelsTransactions;
+
+--DELETE FROM dd.KeyLevelsTransactions;
+
+
+/***** PRICE DATA INSERTION *****/ 
+/* 16. Loading PriceTypes*/
+
+INSERT INTO dd.PriceTypes
+(ID, PriceTypes, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('affc96c3-d926-41f4-b427-9126bf0e5ac1', 'Gap up', 0, '2020/07/22 00:00', 'lnapoli'),
+('5eb55af9-1d45-48f3-8499-83c75de3e479', 'Run up', 0, '2020/07/22 00:00', 'lnapoli'),
+('62f9d646-045b-4ff4-8d49-f2ec2e60a4df', 'Run Down', 0, '2020/07/22 00:00', 'lnapoli'),
+('01daa204-64c6-4214-bf63-e16b4383307a', 'Historic', 0, '2020/07/22 00:00', 'lnapoli'),
+('db4d0455-59e6-4813-8d95-0e8bb90672cd', 'Gap Down', 0, '2020/07/22 00:00', 'lnapoli');
+
+
+
+SELECT * FROM dd.PriceTypes;
+
+--DELETE FROM dd.PriceTypes;
+
+
+/* 17. Loading Price*/
+INSERT INTO dd.Price
+VALUES
+('487e052f-2563-4b0c-942f-8ca4ec5e3c5a'),
+('ec556e3d-c7d6-42e9-aa77-61d99ae26ebd'),
+('6964fd81-4613-410b-81be-a44f188b6758');
+
+SELECT * FROM dd.Price;
+
+--DELETE FROM dd.Price;
+
+
+/* 18. Loading dd.PriceTransactions*/
+
+INSERT INTO pagnone.dd.PriceTransactions
+(ID, PriceValue, ToPriceTypesID, ToPriceID, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('cede78d7-e3df-43e0-a783-2873c6e697b9', 150, 'affc96c3-d926-41f4-b427-9126bf0e5ac1', '487e052f-2563-4b0c-942f-8ca4ec5e3c5a', 0, '2020/07/22 00:00', 'lnapoli'),
+('97593e7b-9d38-496b-9a9b-79a5aacce006', 50, '5eb55af9-1d45-48f3-8499-83c75de3e479', '487e052f-2563-4b0c-942f-8ca4ec5e3c5a', 0, '2020/07/22 00:00', 'lnapoli'),
+('67b647e3-30a8-4ac0-84b0-033f94bcf81e', 180, 'affc96c3-d926-41f4-b427-9126bf0e5ac1', 'ec556e3d-c7d6-42e9-aa77-61d99ae26ebd', 0, '2020/07/22 00:00', 'lnapoli'),
+('7be38944-7cc1-448d-a172-a41e0495c0c8', 20, '5eb55af9-1d45-48f3-8499-83c75de3e479', 'ec556e3d-c7d6-42e9-aa77-61d99ae26ebd', 0, '2020/07/22 00:00', 'lnapoli'),
+('8c17b183-deb1-40d0-978d-f20dd76d4bc5', 200, 'affc96c3-d926-41f4-b427-9126bf0e5ac1', '6964fd81-4613-410b-81be-a44f188b6758', 0, '2020/07/22 00:00', 'lnapoli'),
+('d44c3606-7c73-4ed8-aae2-efc5f72fec09', 50, '5eb55af9-1d45-48f3-8499-83c75de3e479', '6964fd81-4613-410b-81be-a44f188b6758', 0, '2020/07/22 00:00', 'lnapoli'),
+('c47481dc-148a-4f1e-b2e6-78b6d5bc6ec7', 200, '01daa204-64c6-4214-bf63-e16b4383307a', '6964fd81-4613-410b-81be-a44f188b6758', 0, '2020/07/22 00:00', 'lnapoli');
+
+
+
+SELECT * FROM dd.PriceTransactions;
+
+--DELETE FROM dd.PriceTransactions;
+
+
+
+
+/***** STOCK TRANSACTION INSERTION (DUE DILIGENCE) *****/ 
+
+/* 19. Loading dd.StockTransactions*/
+INSERT INTO dd.StockTransactions
+(ID, FloatValue, DueDiligenceAt, ToCatalizerID, ToCashID, ToHistoryChartID, ToPriceID, ToVolumeID, ToKeyLevelsID, ToStockID, IsDeleted, CreatedAt, CreatedBy)
+VALUES
+('fb770ed5-e6a8-435f-8503-a228312d651f', 2.5, '2020/07/22 00:00', '86933c9d-8d2d-45a9-8345-e060236874b6', '4567ff83-1b1f-4148-8ee9-3badd569a15c', 'e15de8ff-7e0c-470e-98b5-ae4007e41188', '487e052f-2563-4b0c-942f-8ca4ec5e3c5a', '8f371c82-0a9a-40c7-ad72-92bee33ef86e', 'f1606988-5a77-4668-89d1-28a2e7840bda', '273e752d-f9b1-44b4-8228-4babad54ba78', 0, '2020/07/22 00:00', 'lnapoli'),
+('9eb94e9d-1a54-457a-9757-cd8055dc9ea8', 8, '2020/07/22 00:00', 'c3a752e6-3c1c-4f7e-80cc-d54ca60e67f1', '35ec2866-4cdc-4c23-899f-6adb531db8b2', 'cec72808-e7aa-48c1-9d58-e45e657aaa5a', 'ec556e3d-c7d6-42e9-aa77-61d99ae26ebd', '0f1be280-054a-4336-929d-d915e2b2259b', '82ab8e35-f614-46dc-89dc-e0d14c6af663', '3e82575f-edf0-48c3-a59d-83f08bc5a338', 0, '2020/07/22 00:00', 'lnapoli'),
+('5ea53b6a-bf81-463f-a39b-913270ee0054', 4, '2020/07/22 00:00', 'bbce7773-2223-457b-a5e8-777717f95422', '212b93e6-935d-414a-bd9e-b9f642b01ec1', 'e71b9abd-cb65-46a0-91a0-ba583b7c5ad4', '6964fd81-4613-410b-81be-a44f188b6758', 'aebb3a67-4c47-4508-9aab-f8da0994a22f', 'cd014ca6-064e-4620-a7df-1b25fce8244b', '926d3d7e-215f-4474-9022-5f6bca3a4841', 0, '2020/07/22 00:00', 'lnapoli');
+
+SELECT * FROM dd.StockTransactions;
+
+--DELETE FROM dd.StockTransactions;
 

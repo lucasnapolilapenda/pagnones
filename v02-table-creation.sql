@@ -217,6 +217,7 @@ CREATE TABLE dd.PriceTransactions
     ID uniqueidentifier NOT NULL,
     PriceValue DECIMAL (10,2) NOT NULL,
     ToPriceTypesID uniqueidentifier NULL,
+    ToPriceID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -234,7 +235,6 @@ GO
 CREATE TABLE dd.Price
 (
     ID uniqueidentifier NOT NULL,
-    ToPriceTransactionsID uniqueidentifier NULL,
     CONSTRAINT PK_Price PRIMARY KEY (ID)
 )
 ;
@@ -322,6 +322,7 @@ CREATE TABLE dd.KeyLevelsTransactions
     ID uniqueidentifier NOT NULL,
     KeyLevelsTransactionsValue DECIMAL (10,2) NOT NULL,
     ToKeylevelsTypeID uniqueidentifier NULL,
+    ToKeylevelsID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,
 	CreatedAt datetime NOT NULL,
 	CreatedBy varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -339,7 +340,6 @@ GO
 CREATE TABLE dd.KeyLevels
 (
     ID uniqueidentifier NOT NULL,
-    ToKeylevelsTransactionsID uniqueidentifier NULL,
     CONSTRAINT PK_KeyLevels PRIMARY KEY (ID)
 )
 ;
