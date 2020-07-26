@@ -117,3 +117,13 @@ In addition, this tool will have a Dashboard to summarize the most relevant info
 License and Rights
 ----
 All the rights are reserved to Fernando Pagnone owner of all the intellectual property. The content of this document can not be distributed or shared without the written concent of Fernando Pagnone. 
+
+
+## Things To be Added
+Fix ER
+Explain Clustered and non clustered decision
+Explain constrains
+Review Ans explain objects in views, triggers, etc
+Explain Roles
+Fix Wireframes
+Add final version of the database
