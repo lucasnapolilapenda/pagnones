@@ -19,7 +19,6 @@ GO
 EXECUTE ev.TotalEarningsbyYear;
 GO
 
--- DROP PROCEDURE ev.TotalEarningsbyYear;
 
 /* % of transacions with lost */
 IF OBJECT_ID ('ev.PlostTransactions') IS NOT NULL  
@@ -37,6 +36,6 @@ AS
 ;
 GO
 
--- DROP PROCEDURE ev.PlostTransactions;
+-- Testing Procedure;
 EXECUTE ev.PlostTransactions;
 GO
