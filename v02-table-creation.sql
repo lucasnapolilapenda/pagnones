@@ -408,7 +408,7 @@ GO
 CREATE TABLE ev.Evaluations
 (
     ID uniqueidentifier NOT NULL,
-    Points integer NOT NULL,
+    Points integer NOT NULL CHECK (Points<=15),
     ToCriteriaID uniqueidentifier NULL,
     ToPerformaceID uniqueidentifier NULL,
 	IsDeleted bit NOT NULL DEFAULT 0,

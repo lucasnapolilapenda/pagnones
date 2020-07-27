@@ -27,7 +27,7 @@ GO
 /* Trigger to comunicate how many Stock are manage in the portfolio when 
 a new Stock is loaded */
 
-IF OBJECT_ID ('dd.StocksCounter') IS NOT NULL  
+IF OBJECT_ID ('dd.StockCounter') IS NOT NULL  
     DROP TRIGGER dd.StockCounter;  
 GO 
 
