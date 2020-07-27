@@ -143,4 +143,83 @@ GO
 SELECT * FROM ev.NegativeEarningsTransactions;
 GO
 
+-- View Creation 8 --- Positive Earning Transactions
+
+CREATE VIEW ev.PositiveEarningsTransactions
+AS
+SELECT 
+    Ticker, PriceBuy - PriceSell Earning
+    
+FROM ev.Performance AS pe
+    INNER JOIN dd.StockTransactions AS st
+    ON pe.ToStockTransactionID = st.ID
+    INNER JOIN dd.Stocks AS Sto
+    ON st.ToStockID = Sto.ID
+    GROUP BY Ticker, PriceSell, PriceBuy
+    HAVING (PriceBuy - PriceSell) > 0;
+GO
+
+-- Running View
+-- DROP VIEW ev.PositiveEarningsTransactions;
+SELECT * FROM ev.PositiveEarningsTransactions;
+GO
+
+-- View Creation 9 --- Catalizer Detail By Transaction
+
+CREATE VIEW dd.CatalizerDetailbyTransaction
+AS
+SELECT 
+    Ticker, st.CreatedAt, cty.CatalizerTypes, ct.CatalizerValue
+    
+FROM dd.StockTransactions AS st
+    INNER JOIN dd.CatalizerTransactions AS ct
+    ON ct.ID = st.ToCatalizerID
+    INNER JOIN dd.CatalizerType AS cty
+    ON ct.ToCatalizerTypeID = cty.ID
+    INNER JOIN dd.Stocks AS sto
+    ON st.ToStockID = sto.ID
+GO
+
+-- Running View
+-- DROP VIEW dd.CatalizerDetailbyTransaction;
+SELECT * FROM dd.CatalizerDetailbyTransaction;
+GO
+
+
+-- Running View
+-- DROP VIEW ev.PositiveEarningsTransactions;
+SELECT * FROM ev.PositiveEarningsTransactions;
+GO
+
+-- View Creation 10 --- Specific KeyLevel
+
+CREATE VIEW dd.KeyLevelUp
+AS
+SELECT 
+    Ticker, st.CreatedAt, cty.CatalizerTypes, ct.CatalizerValue, klty.KeyLevelsTypes, klt.KeyLevelsTransactionsValue
+    
+FROM dd.StockTransactions AS st
+    INNER JOIN dd.CatalizerTransactions AS ct
+    ON ct.ID = st.ToCatalizerID
+    INNER JOIN dd.CatalizerType AS cty
+    ON ct.ToCatalizerTypeID = cty.ID
+    INNER JOIN dd.Stocks AS sto
+    ON st.ToStockID = sto.ID
+    INNER JOIN dd.KeyLevels AS kl
+    ON st.ToKeyLevelsID = kl.ID
+    INNER JOIN dd.KeyLevelsTransactions AS klt
+    ON kl.ID = klt.ToKeyLevelsID
+    INNER JOIN dd.KeyLevelsTypes AS klty 
+    ON klt.ToKeylevelsTypeID = klty.ID
+    GROUP BY Ticker, st.CreatedAt, cty.CatalizerTypes, ct.CatalizerValue, klty.KeyLevelsTypes, klt.KeyLevelsTransactionsValue
+    HAVING klt.KeyLevelsTransactionsValue > 2.5;
+GO
+
+-- Running View
+DROP VIEW dd.KeyLevelUp;
+SELECT * FROM dd.KeyLevelUp;
+GO
+
+
+
 
