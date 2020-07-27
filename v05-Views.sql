@@ -216,7 +216,7 @@ FROM dd.StockTransactions AS st
 GO
 
 -- Running View
-DROP VIEW dd.KeyLevelUp;
+-- DROP VIEW dd.KeyLevelUp;
 SELECT * FROM dd.KeyLevelUp;
 GO
 
